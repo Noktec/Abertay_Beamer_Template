@@ -1,0 +1,9 @@
+\select@language {english}
+\beamer@endinputifotherversion {3.26pt}
+\select@language {english}
+\beamer@sectionintoc {1}{foo1}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{foo11}{3}{0}{1}
+\beamer@sectionintoc {2}{foo2}{6}{0}{2}
+\beamer@sectionintoc {3}{foo3}{7}{0}{3}
+\beamer@sectionintoc {4}{foo5}{13}{0}{4}
+\beamer@sectionintoc {5}{foo6}{14}{0}{5}
