@@ -1,4 +1,4 @@
-##Unofficial Bearmer Template for the University of Abertay Dundee#
+##Unofficial Beamer and Keynote Templates for the University of Abertay Dundee#
 
 - Template for the University of Abertay Dundee
 
@@ -22,3 +22,6 @@ If you notice any bugs, contact me, and I shall do my best to fix them. Of cours
 
 ## Comments ##
 The theme is based on [the following template](https://github.com/satta/zbh-beamer-theme)
+
+## Thank you  ##
+@mikeyjck
