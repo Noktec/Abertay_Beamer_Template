@@ -17,7 +17,7 @@ If you notice any bugs, contact me, and I shall do my best to fix them. Of cours
 
 ## Layout ##
 
-![Template Image]( https://raw.githubusercontent.com/Noktec/Abertay_Beamer_Template/master/AMG/template.png "TemplateAbertay")
+![Template Image]( https://github.com/Noktec/Abertay_Beamer_Template/blob/master/AMG/template.png "TemplateAbertay")
 
 
 ## Comments ##
