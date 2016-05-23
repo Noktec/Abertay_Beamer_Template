@@ -2,7 +2,7 @@
 
 - Template for the University of Abertay Dundee
 
-Keep the .sty file at the root of the folder. 
+Keep the .sty file at the root of the folder.
 
 latex-beamer code:
 
@@ -22,6 +22,9 @@ If you notice any bugs, contact me, and I shall do my best to fix them. Of cours
 
 ## Comments ##
 The theme is based on [the following template](https://github.com/satta/zbh-beamer-theme)
+
+## Abertay Font ##
+The official Abertay font is the proprietary Serifa Roman. This template uses the open source Serifa BT.
 
 ## Thank you  ##
 @mikeyjck
