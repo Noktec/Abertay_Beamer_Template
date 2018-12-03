@@ -7,20 +7,20 @@
 \ProvidesPackage{beamerthemeSTR}[2010/02/06 STR beamer theme]
 \RequirePackage{ifthen}
 \RequirePackage[scaled=.75]{helvet}
-
-\newcommand{\headertext}{
-Division of Computing and Mathematics\\
-}
+\RequirePackage{color}
+\RequirePackage{textpos}
+\definecolor{abertaygreen}{RGB}{60,171,164}
 
 \newcommand{\addresstext}{
-  University of Abertay Dundee\\
+  Abertay University\\
   Security Research Group\\
   Division of Computing and Mathematics\\
   Kydd Building Dundee, Scotland\\ [2mm]
   http://www.abertay.ac.uk
 }
 
-\def\backgroundfile{abertay}
+\def\backgroundfile{abertay_new}
+\def\backgroundfiletitle{abertay_new_title}
 \newboolean{@use1610}
 \setboolean{@use1610}{false}
 \newboolean{@use169}
@@ -30,17 +30,18 @@ Division of Computing and Mathematics\\
 
 
 \DeclareOption{1610}{
-  \def\backgroundfile{abertay_16_10}
+  \def\backgroundfile{abertay_new_wide}
+  \def\backgroundfiletitle{abertay_new_wide_title}
   \setboolean{@use1610}{true}
 }
 
 \DeclareOption{169}{
-  \def\backgroundfile{abertay_16_9}
+  \def\backgroundfile{abertay_new_wide}
+  \def\backgroundfiletitle{abertay_new_wide_title}
   \setboolean{@use169}{true}
 }
 
 \ProcessOptions
-
 
 
 \ifthenelse{\boolean{@use1610}}{ }
@@ -58,27 +59,39 @@ Division of Computing and Mathematics\\
 \setbeamerfont{example text}{series=\bfseries}
 \setbeamerfont{section}{series=\bfseries}
 \setbeamercolor{structure}{fg=black}
-\setbeamercolor{title}{fg=black}
+\setbeamercolor{title}{fg=abertaygreen}
 \setbeamerfont{title}{series=\bfseries}
 
 % disable navigation symbols
 \setbeamertemplate{navigation symbols}{}
 
 % frame
-\setbeamercolor{frametitle}{fg=white}
-\setbeamerfont{frametitle}{series=\mdseries,size=\large}
+\setbeamercolor{frametitle}{fg=abertaygreen}
+\setbeamerfont{frametitle}{series=\mdseries,size=\LARGE}
 \setbeamerfont{framesubtitle}{series=\mdseries,size=\large}
 \setbeamertemplate{frametitle}
 {
   \ifbeamer@plainframe
   \else
-    \textbf{\insertframetitle}
-    \vspace{.25cm}
+	\ifthenelse{\boolean{@use1610}}
+	{
+		\begin{textblock*}{10cm}(3cm,-4.5mm)
+			\centering
+			\textbf{\insertframetitle}
+		\end{textblock*}
+	}
+	{
+	\begin{textblock*}{7cm}(3cm,-4.5mm)
+        \centering
+        \textbf{\insertframetitle}
+    \end{textblock*}
+	}
+    
   \fi
 }
 
 % headline
-\setbeamercolor{headline}{fg=white}
+\setbeamercolor{headline}{fg=black}
 \setbeamertemplate{headline}{
   \ifbeamer@plainframe
   \else
@@ -97,46 +110,49 @@ Division of Computing and Mathematics\\
         \hspace*{10.5cm}
       }
     }
-    \begin{minipage}[b]{2cm}
-      \flushright
-      \headertext
-    \end{minipage}
     \normalsize
   \fi
 }
 
 % title page with Strathclyde Logo
+\setbeamercolor{title page}{fg=white}
 \setbeamertemplate{title page}{
-  \vspace{\@headerdist}
-  \textbf{\LARGE{\inserttitle}}
+    \begin{minipage}[c][0.75\paperheight][c]{0.9\paperwidth}
+    \centering
+    {
+        \textbf{\Huge{\inserttitle}}\\
+        \textbf{\LARGE{\insertsubtitle}}\\
+        
+        \textbf{\large\insertauthor}\\[3mm]
+        \scriptsize
+		\ifdefined\myaffiliation
+			\myaffiliation
+		\else
+			\addresstext 
+		\fi
+    }
+    \end{minipage}
+    
+    \begin{minipage}[c][0.25\paperheight][t]{0.333\paperwidth}
+    \insertdate
+    \end{minipage}
 
-  \textbf{\large{\insertsubtitle}}
-  \vfill
-  \begin{columns}
-  \begin{column}{.45\textwidth}
-    \textbf{\insertauthor}\\[3mm]
-    \scriptsize
-    \addresstext
-  \end{column}
-  \begin{column}{.45\textwidth}
-    \centerline{
-      \pgfimage[height=3.5cm]{house}}
-  \end{column}
-  \end{columns}
-  \normalsize
+    \normalsize
 }
 
 % footer with name, date and page numbers
-\setbeamercolor{footline}{fg=gray}
+\setbeamercolor{footline}{fg=black}
 \setbeamertemplate{footline}{
   \ifbeamer@plainframe
   \else
+    \ifnum\c@framenumber=1
+    \else
     \leavevmode\tiny%
-    \hspace*{1cm}%
-    \makebox[6cm][l]{\insertauthor}%
-    \makebox[4cm][l]{\insertdate}%
-      \hfill\insertframenumber/\inserttotalframenumber\hspace{5mm}%
-    \vspace{3mm}%
+    \makebox[0.333\paperwidth][l]{\hspace{10mm}\insertframenumber/\inserttotalframenumber}%
+    \makebox[0.333\paperwidth][c]{\insertdate}%
+    \makebox[0.333\paperwidth][r]{abertay.ac.uk\hspace{10mm}}%
+    \vspace{1.5mm}%
+    \fi
   \fi
 }
 
@@ -144,7 +160,11 @@ Division of Computing and Mathematics\\
 \setbeamertemplate{background} {
   \ifbeamer@plainframe
   \else
-    \includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfile}
+  \ifnum\c@framenumber=1%
+        \includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfiletitle}
+    \else
+        \includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfile}
+    \fi%
   \fi
 }
 
