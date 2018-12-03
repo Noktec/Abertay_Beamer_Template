@@ -11,7 +11,7 @@ latex-beamer code:
 
 ## Informations ##
 
-Defaults are 4:3 ratio.
+Defaults are 4:3 ratio. use [aspectratio=169, 169] for wide presentations
 
 If you notice any bugs, contact me, and I shall do my best to fix them. Of course, any contributions are also welcome.
 
