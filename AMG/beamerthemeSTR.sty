@@ -73,15 +73,15 @@
 {
   \ifbeamer@plainframe
   \else
-	\ifthenelse{\boolean{@use1610}}
+	\ifthenelse{\boolean{@use169}}
 	{
-		\begin{textblock*}{10cm}(3cm,-4.5mm)
+		\begin{textblock*}{11cm}(2cm,-4.5mm)
 			\centering
 			\textbf{\insertframetitle}
 		\end{textblock*}
 	}
 	{
-	\begin{textblock*}{7cm}(3cm,-4.5mm)
+	\begin{textblock*}{7.5cm}(3cm,-5.5mm)
         \centering
         \textbf{\insertframetitle}
     \end{textblock*}
@@ -133,8 +133,8 @@
     }
     \end{minipage}
     
-    \begin{minipage}[c][0.25\paperheight][t]{0.333\paperwidth}
-    \insertdate
+    \begin{minipage}[c][0.15\paperheight][t]{0.5\paperwidth}
+    \vspace{-2.5mm}\hspace{5pt}\insertdate
     \end{minipage}
 
     \normalsize
@@ -151,7 +151,7 @@
     \makebox[0.333\paperwidth][l]{\hspace{10mm}\insertframenumber/\inserttotalframenumber}%
     \makebox[0.333\paperwidth][c]{\insertdate}%
     \makebox[0.333\paperwidth][r]{abertay.ac.uk\hspace{10mm}}%
-    \vspace{1.5mm}%
+    \vspace{1.2mm}%
     \fi
   \fi
 }
