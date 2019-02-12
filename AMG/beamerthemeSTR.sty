@@ -10,6 +10,7 @@
 \RequirePackage{color}
 \RequirePackage{textpos}
 \definecolor{abertaygreen}{RGB}{60,171,164}
+\setbeamertemplate{itemize items}[circle]
 
 \newcommand{\addresstext}{
   Abertay University\\
@@ -117,26 +118,28 @@
 % title page with Strathclyde Logo
 \setbeamercolor{title page}{fg=white}
 \setbeamertemplate{title page}{
-    \begin{minipage}[c][0.75\paperheight][c]{0.9\paperwidth}
-    \centering
-    {
-        \textbf{\Huge{\inserttitle}}\\
-        \textbf{\LARGE{\insertsubtitle}}\\
-        
-        \textbf{\large\insertauthor}\\[3mm]
-        \scriptsize
-		\ifdefined\myaffiliation
-			\myaffiliation
-		\else
-			\addresstext 
-		\fi
+    \centerline{
+        \begin{minipage}[c][0.75\paperheight][c]{0.9\paperwidth}
+        \centering
+        {
+            \textbf{\Huge{\inserttitle}}\\[2mm]
+            \textbf{\LARGE{\insertsubtitle}}\\
+            \vspace{4mm}
+            \textbf{\large\insertauthor}\\[3mm]
+            \scriptsize
+    		\ifdefined\myaffiliation
+    			\myaffiliation
+    		\else
+    			\addresstext 
+    		\fi
+        }
+        \end{minipage}
     }
-    \end{minipage}
     
     \begin{minipage}[c][0.15\paperheight][t]{0.5\paperwidth}
     \vspace{-2.5mm}\hspace{5pt}\insertdate
     \end{minipage}
-
+    
     \normalsize
 }
 
